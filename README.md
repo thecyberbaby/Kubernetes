@@ -44,7 +44,7 @@ Please refer the official documentation for [installation](https://kubernetes.io
 
 ### Quick start
 
-Kubernetes Components
+## Kubernetes Components
 
 - Control Plane Components
 
@@ -86,3 +86,19 @@ Kubernetes Components
     <img src="snaps/k8sComponents.png" width="900" />
 </p>
 
+
+## Workload Resources
+
+ - Deployments
+ - ReplicaSet
+ ---------------------------------------
+ - StatefulSet
+ - DaemonSet
+ - Jobs
+ - TTL Controller for Finished Resourced
+ - CronJob
+ - ReplicationController
+
+In this particular POC i we'll focus on `Deployments` and `ReplicaSet`.
+
+For more feel free to peek into the official documentation [here](https://kubernetes.io/docs/concepts/workloads/controllers/)
