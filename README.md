@@ -101,5 +101,5 @@ In this particular POC i we'll focus on `Deployments` and `ReplicaSet` and `Auto
 
 For more feel free to peek into the official documentation [here.](https://kubernetes.io/docs/concepts/workloads/controllers/)
 
-  - [Hello-Minikube](https://kubernetes.io/docs/tutorials/hello-minikube/)
-  - [Hello-Kind](https://kind.sigs.k8s.io/)
+  - [Hello-Minikube](https://github.com/thecyberbaby/Kubernetes/tree/master/minikube-k8s)
+  - [Hello-Kind](https://github.com/thecyberbaby/Kubernetes/tree/master/kind-k8s)
