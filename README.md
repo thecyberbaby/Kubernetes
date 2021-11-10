@@ -11,6 +11,9 @@
 
 - Designed on the same principles that allows Google to run billions of containers a week, Kubernetes can scale without increasing your ops team.
 
+<p align="center">
+    <img src="snaps/Kubernetes_New.png" width="500" />
+</p>
 
 ## Features
 
@@ -37,14 +40,14 @@
 
 Please refer the official documentation for [installation](https://kubernetes.io/docs/tasks/tools/).
 
-<p align="center">
-    <img src="snaps/Kubernetes_New.png" width="500" />
-</p>
-
 
 ### Quick start
 
 ## Kubernetes Components
+
+ <p align="center">
+    <img src="snaps/k8sComponents.png" width="900" />
+</p>
 
 - Control Plane Components
 
@@ -80,11 +83,6 @@ Please refer the official documentation for [installation](https://kubernetes.io
  - Web UI (Dashboard)
  - Conatiner Resources Monitoring
  - Cluster-level Logging
-
-
- <p align="center">
-    <img src="snaps/k8sComponents.png" width="900" />
-</p>
 
 
 ## Workload Resources
