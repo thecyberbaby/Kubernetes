@@ -99,6 +99,9 @@ Please refer the official documentation for [installation](https://kubernetes.io
  - CronJob
  - ReplicationController
 
-In this particular POC i we'll focus on `Deployments` and `ReplicaSet`.
+In this particular POC i we'll focus on `Deployments` and `ReplicaSet` and `Autoscaler part`.
 
-For more feel free to peek into the official documentation [here](https://kubernetes.io/docs/concepts/workloads/controllers/)
+For more feel free to peek into the official documentation [here.](https://kubernetes.io/docs/concepts/workloads/controllers/)
+
+  - [Hello-Minikube](https://kubernetes.io/docs/tutorials/hello-minikube/)
+  - [Hello-Kind](https://kind.sigs.k8s.io/)
