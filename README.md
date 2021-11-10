@@ -38,7 +38,7 @@
 Please refer the official documentation for [installation](https://kubernetes.io/docs/tasks/tools/).
 
 <p align="center">
-    <img src="snaps/Kubernetes_New" width="500" />
+    <img src="snaps/Kubernetes_New.png" width="500" />
 </p>
 
 
@@ -83,6 +83,6 @@ Kubernetes Components
 
 
  <p align="center">
-    <img src="snaps/k8sComponenets" width="900" />
+    <img src="snaps/k8sComponents.png" width="900" />
 </p>
 
