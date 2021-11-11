@@ -115,11 +115,11 @@ The output is similar to:
 
 		kubectl rollout status deployment/nginx-deployment
 
-		# The output is similar to this:
+		#The output is similar to this:
 		
 		Waiting for rollout to finish: 2 out of 3 new replicas have been updated...
 		
-		# or
+		#or
 		
 		deployment "nginx-deployment" successfully rolled out
 
