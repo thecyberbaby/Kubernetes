@@ -99,7 +99,7 @@ The output is similar to:
 
 Note: A Deployment's rollout is triggered if and only if the Deployment's Pod template (that is, `.spec.template`) is changed, for example if the labels or container images of the template are updated. Other updates, such as scaling the Deployment, do not trigger a rollout.
 
- - 1. Let's update the nginx Pods to use the nginx:1.16.1 image instead of the nginx:1.14.2 image.
+ - Let's update the nginx Pods to use the nginx:1.16.1 image instead of the nginx:1.14.2 image.
 
 		kubectl set image deployment.v1.apps/nginx-deployment nginx=nginx:1.16.1
 		
@@ -111,7 +111,7 @@ The output is similar to:
 
 		deployment.apps/nginx-deployment image updated
 
- - 2. To see the rollout status, run:
+ - To see the rollout status, run:
 
 		kubectl rollout status deployment/nginx-deployment
 
