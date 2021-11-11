@@ -18,7 +18,7 @@
 - Container or virtual machine manager, such as: Docker, Hyperkit, Hyper-V, KVM, Parallels Podman, VirtualBox, or VMware
 
 <p align="center">
-    <img src="../snaps/mikube.jpg" width="400" />
+    <img src="../snaps/mikube.jpg" width="700" />
 </p>
 
 ### Start  your cluster
@@ -110,7 +110,7 @@ Delete all local clusters and profiles
 	minikube delete --all
 
 <p align="center">
-    <img src="../snaps/minikubeArchitecture.png" width="400" />
+    <img src="../snaps/minikubeArchitecture.png" width="700" />
 </p>
 
 ## In the end
