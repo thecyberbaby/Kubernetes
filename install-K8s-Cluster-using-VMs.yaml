@@ -1,0 +1,135 @@
+Install Kubernetes Cluster using VMs
+######################################################################################################################################################################
+KUBERNETES CLUSTER INSTALLATION USING VM 
+##########################################
+
+
+sudo su 
+
+apt-get update && apt-get upgrade -y 
+
+apt-get install net-tools //get ip using ifconfig
+
+################################################
+
+SETUP KUBERENETES ENVIRONMENT
+
+free -h #check swap memory
+
+swapoff nd
+ # temporary disable 
+
+note:-> for permanent disable got to  /etc/fstab and comment swap line
+
+route -n # check gateway
+
+vi /etc/netplan/00-installer-config.yaml # set static ip 
+
+NOTE:-> here a snapsot to configure and set static ip 
+
+<snap>
+
+network:
+  ethernets:
+    enp0s3:
+      dhcp4: true
+    enp0s8:
+      dhcp4: no
+      addresses:
+              - 192.168.56.22/24
+      gateway4: 10.0.2.2
+      nameservers:
+              addresses: [8.8.8.8, 1.1.1.1]
+  version: 2
+
+<snap>
+
+
+vi /etc/hosts # update static ip of master and all worker-node to 
+
+apt-get update
+
+apt-get install -y docker.io # install docker 
+
+usermod -aG docker <username> # add permission to access docker by user
+
+shutdown -r now # apply changes
+
+
+INSTALL KUBEADM
+
+sudo apt-get update
+
+sudo apt-get install -y apt-transport-https ca-certificates curl #install https and curl
+
+sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg   # add gpg key for intracommunication cluster
+
+echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list  #add kubernetes repo
+
+sudo apt-get update
+sudo apt-get install -y kubelet kubeadm kubectl
+sudo apt-mark hold kubelet kubeadm kubectl
+
+
+CONFIGURE Cgroup driver
+
+vi /etc/docker/daemon.json #set  docker cgroup driver=systemd
+<snap>
+
+{
+    "exec-opts": ["native.cgroupdriver=systemd"]
+}
+
+<snap>
+
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+sudo systemctl restart kubelet
+
+NOTE:-> bydefault cgroupdriver of docker is cgroupfs but kubeadm support systemd thats why to make changes..
+
+
+CONFIGURE kubelete file and set driver
+
+nano /etc/systemd/system/kubelet.service.d/10-kubeadm.conf # add driver on environment
+
+<snap>
+
+Environment=”cgroup-driver=systemd/cgroup-driver=cgroupfs”
+
+<snap>
+
+
+NOTE:-> SETUP THAT ENVIRONMENT ON ALL NODE
+
+
+
+################################################################################
+
+BOOTSTRAPPING ON MASTER NODE
+
+kubeadm init --apiserver-advertise-address=<ip-address-of-vm> --pod-network-cidr=192.168.0.0/16
+
+
+To start using your cluster, you need to run the following as a regular user:
+
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+Alternatively, if you are the root user, you can run:
+
+export KUBECONFIG=/etc/kubernetes/admin.conf
+
+
+
+ADD NETWORK SOLUTION TOOL  for pods like fanal
+
+kubectl apply -f https://github.com/coreos/flannel/raw/master/Documentation/kube-flannel.yml
+
+kubectl get pods -A # check network tools is add or running or not ...
+
+
+
+OT JOIN CLUSTER COPY token and paste on node -> its look like this -> kubeadm join 192.168.56.22 ... .... token ...
+#################################################################################################################################################################################
